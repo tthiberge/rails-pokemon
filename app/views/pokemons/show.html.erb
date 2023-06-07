@@ -1,23 +1,24 @@
-<h1>Pokemons#show</h1>
-<p>Find me in app/views/pokemons/show.html.erb</p>
+<h1><%= @pokemon.name.capitalize %></h1>
 
-<p>Pokemon name: <%= @pokemon.name %> </p>
-<p>Pokemon weight: <%= @pokemon.weight %>kg </p>
-<p>Pokemon height: <%= @pokemon.height %>cm </p>
-<p>Pokemon price: <%= @pokemon.price %> USD_BTC </p>
-<p>Pokemon image: <%= @pokemon.url %> </p>
+<br>
+<%= link_to "back to home", root_path, class: "btn btn-primary" %>
+<%= link_to "List all the pokemons", pokemons_path, class: "btn btn-primary" %>
+
+<br><br>
+
+
+ <div class="card-product">
+      <img src="<%=@pokemon.url%>" />
+      <div class="card-product-infos">
+        <h2><%= @pokemon.name %></h2>
+        <p>Weight: <%= @pokemon.weight %></p>
+        <p>Height: <%= @pokemon.height %></p>
+        <p>Price: <%= @pokemon.price %> USD_BTC</p>
+      </div>
+    </div>
 
 <br><br>
 
 <% if @pokemon.user != current_user %>
-  <%= link_to "Buy this pokemon", pokemon_transaction_checkout_path(@pokemon), class: "btn btn-warning" %>
+  <%= link_to "Buy this pokemon", pokemon_transaction_checkout_path(@pokemon), class: "btn btn-success" %>
 <% end %>
-
-
-
-<br><br><br>
-<%= link_to "back to home", root_path, class: "btn btn-primary" %>
-<%= link_to "List all the pokemons", pokemons_path, class: "btn btn-primary" %>
-
-
-<%= console %>

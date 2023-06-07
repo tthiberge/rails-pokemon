@@ -7,16 +7,15 @@ puts "Seeding"
 
 # Creating the users
 theo = User.create!(
-  email: "tt@gmail.com" ,
+  email: "tt@gmail.com",
   password: "123456",
   balance: 1000)
 
 harold = User.create!(
-  email: "harold@gmail.com" ,
+  email: "harold@gmail.com",
   password: "123456",
   balance: 2000
 )
-
 
 # Creating the Pokemons
 pikachu = Pokemon.new(
@@ -70,33 +69,23 @@ dracofeu = Pokemon.new(
 dracofeu.user = harold
 dracofeu.save
 
-
-
-
-
-
-
-
-
-
-
 # Transactions
 transaction1 = Transaction.new
 transaction1.user = theo
 transaction1.pokemon = pikachu
-transaction1.action = "buy from harold for 2 USD_BTC"
+transaction1.action = "Buy from User N°#{harold.id} for 2 USD_BTC"
 transaction1.save
 
 transaction1 = Transaction.new
 transaction1.user = harold
 transaction1.pokemon = dracofeu
-transaction1.action = "buy from theo for 3 USD_BTC"
+transaction1.action = "Buy from User N°#{theo.id} for 3 USD_BTC"
 transaction1.save
 
 transaction1 = Transaction.new
 transaction1.user = harold
 transaction1.pokemon = ronflex
-transaction1.action = "buy from theo for 3 USD_BTC"
+transaction1.action = "Buy from User N°#{theo.id} for 3 USD_BTC"
 transaction1.save
 
 puts "Seeded"

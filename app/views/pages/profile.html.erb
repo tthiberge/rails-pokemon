@@ -4,8 +4,21 @@
 
 <br><br>
 
-<h3>Your account ID is: </h3>
-<p><%= @user.email %></p>
-
 <h3>Your current money balance is: </h3>
 <p><%= @user.balance %> USD_BTC</p>
+
+<br><br>
+
+<h3>Your Pokemons</h3>
+
+<% @user.pokemons.each do |pokemon| %>
+    <div class="card-product">
+      <img src="<%=pokemon.url%>" />
+      <div class="card-product-infos">
+        <h2><%= pokemon.name %></h2>
+        <p>Weight: <%= pokemon.weight %></p>
+        <p>Height: <%= pokemon.height %></p>
+        <p>Price: <%= pokemon.price %> USD_BTC</p>
+      </div>
+    </div>
+<% end %>

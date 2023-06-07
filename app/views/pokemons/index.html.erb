@@ -1,15 +1,19 @@
-<h1>Liste de tous les Pokemons</h1>
-
-
+<h1>List of all the Pokemons</h1>
+<br>
+<%= link_to "back to home", root_path, class: "btn btn-primary" %>
+<br><br>
 
 <% @pokemons.each do |pokemon| %>
   <%= link_to pokemon_path(pokemon) do %>
-    <li><%= pokemon.name %> - <%= pokemon.weight %>kg - <%= pokemon.height %>cm - <%= pokemon.price %> USD_BTC</li>
+
+    <div class="card-product">
+      <img src="<%=pokemon.url%>" />
+      <div class="card-product-infos">
+        <h2><%= pokemon.name %></h2>
+        <p>Weight: <%= pokemon.weight %></p>
+        <p>Height: <%= pokemon.height %></p>
+        <p>Price: <%= pokemon.price %> USD_BTC</p>
+      </div>
+    </div>
   <% end %>
 <% end %>
-
-
-
-
-<br><br><br>
-<%= link_to "back to home", root_path, class: "btn btn-primary" %>

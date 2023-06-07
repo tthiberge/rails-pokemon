@@ -17,7 +17,7 @@ class TransactionsController < ApplicationController
       @user.balance = @user.balance - @pokemon.price
       @transaction = Transaction.new(user: @user, pokemon: @pokemon)
       @pokemon.user = @user
-      @transaction.action = "buy from #{@seller.id} for #{@pokemon.price} USD_BTC"
+      @transaction.action = "buy from User n°#{@seller.id} for #{@pokemon.price} USD_BTC"
       @pokemon.save
       @user.save
       @seller.save
