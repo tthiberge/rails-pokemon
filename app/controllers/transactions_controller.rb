@@ -12,19 +12,20 @@ class TransactionsController < ApplicationController
     if @user.balance < @pokemon.price
       render pokemon_path(@pokemon), alert: "Sorry, not enough money in your balance"
     else
-      @transaction = Transaction.new(transaction_params)
+      # raise
       @seller = @pokemon.user
       @user.balance = @user.balance - @pokemon.price
+      @transaction = Transaction.new(user: @user, pokemon: @pokemon)
       @pokemon.user = @user
-      @transaction.action = "buy from #{@seller} for #{@pokemon.price} USD_BTC"
-    end
-    @pokemon.save
-    @user.save
-    @seller.save
-    if @transaction.save
-      redirect_to list_transactions_path
-    else
-      render pokemon_path(@pokemon), status: :unprocessable_entity
+      @transaction.action = "buy from #{@seller.id} for #{@pokemon.price} USD_BTC"
+      @pokemon.save
+      @user.save
+      @seller.save
+        if @transaction.save
+          redirect_to list_transactions_path
+        else
+          render pokemon_path(@pokemon), status: :unprocessable_entity
+        end
     end
   end
 
@@ -33,7 +34,8 @@ class TransactionsController < ApplicationController
   end
 
   private
+
   def transaction_params
-    params.require(:transaction).permit(:action, :user, :pokemon)
+    params.require(:transaction).permit(:action, :user_id, :pokemon_id)
   end
 end

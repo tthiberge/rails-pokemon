@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :pokemons, only: %i[index show] do
     # get * 3 avec les diff transactions
     get "/checkout", to: "transactions#checkout", as: :transaction_checkout
-    post "/pokemons/:id/buy", to: "transactions#buy", as: :transaction_buy
-    post "/pokemons/:id/sell", to: "transactions#sell", as: :transaction_sell
+    post "/buy", to: "transactions#buy", as: :transaction_buy
+    post "/sell", to: "transactions#sell", as: :transaction_sell
   end
 
 

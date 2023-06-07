@@ -3,5 +3,5 @@
 <p>You want to buy <%= @pokemon.name.capitalize %> for <%= @pokemon.price %> USD_BTC</p>
 
 <p>Do you confirm?</p>
-<%= link_to "Yes", "#", data: { turbo_method: "post" }, class: "btn btn-success" %>
+<%= link_to "Yes",  pokemon_transaction_buy_path(@pokemon), data: { turbo_method: "post" }, class: "btn btn-success" %>
 <%= link_to "No", pokemon_path(@pokemon), class: "btn btn-danger"%>
