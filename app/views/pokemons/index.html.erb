@@ -1,0 +1,14 @@
+<h1>Liste de tous les Pokemons</h1>
+
+
+<% @pokemons.each do |pokemon| %>
+  <li><%= pokemon.name %> - <%= pokemon.weight %>kg - <%= pokemon.height %>cm - <%= pokemon.price %> USD_BTC</li>
+
+
+<% end %>
+
+
+
+
+<br><br><br>
+<%= link_to "back to home", root_path, class: "btn btn-primary" %>
