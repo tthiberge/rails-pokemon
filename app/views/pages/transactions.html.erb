@@ -1,0 +1,3 @@
+<% @transactions.each do |transaction| %>
+  <p><%= transaction.pokemon.name.upcase %> has been involved in a transaction: <%= transaction.action.capitalize %> on <%= transaction.created_at %> </p>
+<% end %>

@@ -1,9 +1,23 @@
 <h1>Pokemons#show</h1>
 <p>Find me in app/views/pokemons/show.html.erb</p>
 
+<p>Pokemon name: <%= @pokemon.name %> </p>
+<p>Pokemon weight: <%= @pokemon.weight %>kg </p>
+<p>Pokemon height: <%= @pokemon.height %>cm </p>
+<p>Pokemon price: <%= @pokemon.price %> USD_BTC </p>
+<p>Pokemon image: <%= @pokemon.url %> </p>
+
+<br><br>
+
+<% if @pokemon.user != current_user %>
+  <%= link_to "Buy this pokemon", pokemon_transaction_checkout_path(@pokemon), class: "btn btn-warning" %>
+<% end %>
 
 
 
 <br><br><br>
 <%= link_to "back to home", root_path, class: "btn btn-primary" %>
 <%= link_to "List all the pokemons", pokemons_path, class: "btn btn-primary" %>
+
+
+<%= console %>

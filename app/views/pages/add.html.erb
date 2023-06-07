@@ -1,0 +1,12 @@
+<h3>Your current balance:</h3>
+<p><%= @user.balance %> USD_BTC</p>
+
+
+
+<%= simple_form_for(@user, as: :add_money_to_balance, method: :patch, url: update_money_in_balance_path) do |f| %>
+  <%= f.input :balance,
+              label: "Balance you want to achieve by adding money"
+
+  %>
+  <%= f.submit 'Add money to balance' %>
+<% end %>
